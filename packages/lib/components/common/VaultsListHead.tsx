@@ -35,6 +35,7 @@ export const VaultsListHead = (props: TVaultsListHeadProps): ReactElement => {
 					return props.onSortDirection('asc');
 				}
 				if (props.sortDirection === 'asc') {
+					props.onSortBy(null);
 					return props.onSortDirection(null);
 				}
 			}
@@ -47,35 +48,18 @@ export const VaultsListHead = (props: TVaultsListHeadProps): ReactElement => {
 	 *********************************************************************************************/
 	const renderSortIcons = useCallback(
 		(shouldSortBy: boolean): ReactElement => {
-			if (shouldSortBy && props.sortDirection === 'desc') {
-				return (
-					<IconSort
-						leftIconColorClassName={'text-regularColor'}
-						rightIconColorClassName={'text-regularColor'}
-						rightOpacity={'1'}
-						className={'size-4'}
-					/>
-				);
-			}
-			if (shouldSortBy && props.sortDirection === 'asc') {
-				return (
-					<IconSort
-						leftIconColorClassName={'text-regularColor'}
-						rightIconColorClassName={'text-regularColor'}
-						leftOpacity={'1'}
-						className={'size-4'}
-					/>
-				);
-			}
+			const shouldHighlightRight = shouldSortBy && props.sortDirection === 'desc';
+			const shouldHighlightLeft = shouldSortBy && props.sortDirection === 'asc';
+
 			return (
 				<IconSort
-					leftIconColorClassName={'text-regularColor'}
-					rightIconColorClassName={'text-regularColor'}
-					className={'size-4 opacity-50'}
+					leftIconColorClassName={shouldHighlightLeft ? 'opacity-1' : 'opacity-50'}
+					rightIconColorClassName={shouldHighlightRight ? 'opacity-1' : 'opacity-50'}
+					className={'size-4'}
 				/>
 			);
 		},
-		[props.sortDirection]
+		[props]
 	);
 
 	return (
@@ -85,7 +69,7 @@ export const VaultsListHead = (props: TVaultsListHeadProps): ReactElement => {
 					<button
 						onClick={() => toggleSortDirection(item.value as TVaultsSortBy)}
 						className={cl(
-							'flex w-full items-center gap-x-2',
+							'flex w-full items-center gap-x-2 group',
 							item.value === 'deposits' || item.value === 'balance' || item.value === 'apy'
 								? 'justify-end'
 								: 'justify-center'
