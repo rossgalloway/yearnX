@@ -110,8 +110,8 @@ export function VaultList(props: TVaultListProps): ReactElement {
 			const balance = getBalance({address: vault.address, chainID: vault.chainID}).normalized || 0;
 			return balance === 0;
 		});
-		// Sort by TVL by default
-		return values.sort((a, b) => b.tvl.tvl - a.tvl.tvl);
+		// Sort by featuringScore by default
+		return values.sort((a, b) => b.featuringScore - a.featuringScore);
 	}, [balanceHash, allVaults, getBalance]);
 
 	const {sortedVaults: sortedVaultsWithBalance} = useSortedVaults(vaultsWithBalance, allPrices, props.options);
