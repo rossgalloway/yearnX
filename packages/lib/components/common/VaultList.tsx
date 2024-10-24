@@ -3,6 +3,7 @@
 import {type ReactElement, useEffect, useMemo, useState} from 'react';
 import {useQueryState} from 'nuqs';
 import {VAULTS_PER_PAGE} from 'packages/pendle/constants';
+import useWallet from '@builtbymom/web3/contexts/useWallet';
 import {zeroNormalizedBN} from '@builtbymom/web3/utils';
 import {usePrices} from '@lib/contexts/usePrices';
 import {useSortedVaults} from '@lib/hooks/useSortedVaults';
@@ -41,6 +42,8 @@ export function VaultList(props: TVaultListProps): ReactElement {
 	const {getPrices, pricingHash} = usePrices();
 	const [allPrices, set_allPrices] = useState<TNDict<TDict<TNormalizedBN>>>({});
 
+	const {balanceHash, getBalance} = useWallet();
+
 	/**********************************************************************************************
 	 ** useEffect hook to retrieve and memoize prices for all tokens associated with the vaults.
 	 ** - Constructs an array of tokens from `props.vaults` containing chain IDs and addresses.
@@ -70,12 +73,54 @@ export function VaultList(props: TVaultListProps): ReactElement {
 		return filteredVaults;
 	}, [searchValue, props.vaults]);
 
+	const allVaults = searchValue ? filteredVaults : props.vaults;
+
+	/**********************************************************************************************
+	 * useMemo hook to filter vaults with non-zero balance.
+	 * - Acknowledges the balanceHash to trigger re-computation when balances change.
+	 * - Filters vaultsToUse array based on whether each vault has a positive balance.
+	 * - Uses getBalance function to retrieve the normalized balance for each vault.
+	 * - Returns an array of vaults where the user has a non-zero balance.
+	 *********************************************************************************************/
+	const vaultsWithBalance = useMemo(() => {
+		acknowledge(balanceHash);
+		const values = allVaults.filter(vault => {
+			const balance = getBalance({address: vault.address, chainID: vault.chainID}).normalized || 0;
+			return balance > 0;
+		});
+
+		// Sort by balance by default
+		return values.sort(
+			(a, b) =>
+				getBalance({address: b.address, chainID: b.chainID}).normalized -
+				getBalance({address: a.address, chainID: a.chainID}).normalized
+		);
+	}, [balanceHash, allVaults, getBalance]);
+
+	/**********************************************************************************************
+	 * useMemo hook to filter vaults with zero balance.
+	 * - Acknowledges the balanceHash to trigger re-computation when balances change.
+	 * - Filters allVaults array based on whether each vault has a zero balance.
+	 * - Uses getBalance function to retrieve the normalized balance for each vault.
+	 * - Returns an array of vaults where the user has a zero balance.
+	 *********************************************************************************************/
+	const vaultsWithNoBalance = useMemo(() => {
+		acknowledge(balanceHash);
+		const values = allVaults.filter(vault => {
+			const balance = getBalance({address: vault.address, chainID: vault.chainID}).normalized || 0;
+			return balance === 0;
+		});
+		// Sort by featuringScore by default
+		return values.sort((a, b) => b.featuringScore - a.featuringScore);
+	}, [balanceHash, allVaults, getBalance]);
+
+	const {sortedVaults: sortedVaultsWithBalance} = useSortedVaults(vaultsWithBalance, allPrices, props.options);
+	const sort = useSortedVaults(vaultsWithNoBalance, allPrices, props.options);
+
 	const {vaults, goToNextPage, goToPrevPage, goToPage, currentPage, amountOfPages} = useVaultsPagination(
 		VAULTS_PER_PAGE,
-		searchValue ? filteredVaults : props.vaults
+		[...(sortedVaultsWithBalance || []), ...(sort.sortedVaults || [])]
 	);
-
-	const sort = useSortedVaults(vaults, allPrices, props.options);
 
 	/**********************************************************************************************
 	 ** Generates the layout based on the current props and state.
@@ -88,10 +133,10 @@ export function VaultList(props: TVaultListProps): ReactElement {
 			return <Skeleton />;
 		}
 
-		if (sort.sortedVaults?.length) {
+		if (vaults.length) {
 			return (
 				<div className={'flex flex-col gap-y-3'}>
-					{sort.sortedVaults.map(vault => (
+					{vaults.map(vault => (
 						<VaultItem
 							key={vault.address}
 							vault={vault}

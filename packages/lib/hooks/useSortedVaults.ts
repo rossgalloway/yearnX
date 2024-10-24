@@ -28,12 +28,12 @@ export const useSortedVaults = (
 	const {balanceHash, getBalance} = useWallet();
 	const {pricingHash} = usePrices();
 	const [sortDirection, set_sortDirection] = useQueryState('sortDirection', {
-		defaultValue: 'desc',
+		defaultValue: '',
 		shallow: true,
 		clearOnDefault: true
 	});
 	const [sortBy, set_sortBy] = useQueryState('sortBy', {
-		defaultValue: 'balance',
+		defaultValue: '',
 		shallow: true,
 		clearOnDefault: true
 	});

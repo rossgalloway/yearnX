@@ -508,7 +508,7 @@ export const usePortalsSolver = (
 				to: toAddress(to),
 				data,
 				chainId: tokenToSpend.chainID,
-				// gas: 2000000,
+				// gas: 20000000n,
 				...rest
 			});
 			const receipt = await waitForTransactionReceipt(retrieveConfig(), {
