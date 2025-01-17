@@ -187,7 +187,7 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 	 ** vault version.
 	 *********************************************************************************************/
 	const yearnfiLink = useMemo(() => {
-		const vaultOrV3 = vault.version.startsWith('3') ? 'v3' : 'vaults';
+		const vaultOrV3 = vault.version.startsWith('3') || vault.version.startsWith('~3') ? 'v3' : 'vaults';
 		return `https://yearn.fi/${vaultOrV3}/${vault.chainID}/${vault.address}`;
 	}, [vault.address, vault.chainID, vault.version]);
 

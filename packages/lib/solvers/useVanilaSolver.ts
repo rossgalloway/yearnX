@@ -31,7 +31,12 @@ export const useVanilaSolver = (
 	 **
 	 ** @returns isV3Vault: boolean - Whether the vault is a V3 vault or not.
 	 *********************************************************************************************/
-	const isV3Vault = useMemo(() => configuration?.vault?.version.split('.')?.[0] === '3', [configuration?.vault]);
+	const isV3Vault = useMemo(
+		() =>
+			configuration?.vault?.version.split('.')?.[0] === '3' ||
+			configuration?.vault?.version.split('.')?.[0] === '~3',
+		[configuration?.vault]
+	);
 
 	/**********************************************************************************************
 	 ** The isLegacyVault hook is used to determine if the current vault is a legacy vault.
