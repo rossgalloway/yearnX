@@ -1,0 +1,14 @@
+{
+	"name": "yearnxmorpho",
+	"scripts": {
+		"dev": "next",
+		"dev:ts": "tsc --watch",
+		"start": "tsc && next build && next start",
+		"build": "tsc && next build",
+		"export": "tsc && next build && next export -o ipfs"
+	},
+	"dependencies": {
+		"lib": "workspace:lib",
+		"nuqs": "^1.17.8"
+	}
+}

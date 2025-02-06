@@ -1,6 +1,6 @@
 'use client';
 
-import {type ReactElement, useEffect, useMemo, useState} from 'react';
+import {Fragment, type ReactElement, useEffect, useMemo, useState} from 'react';
 import {useQueryState} from 'nuqs';
 import {VAULTS_PER_PAGE} from 'packages/pendle/constants';
 import useWallet from '@builtbymom/web3/contexts/useWallet';
@@ -37,7 +37,7 @@ const HEADER_TABS = [
 	{value: 'manage', label: 'Manage', isSortable: false}
 ];
 
-export function VaultList(props: TVaultListProps): ReactElement {
+function VaultListContent(props: TVaultListProps): ReactElement {
 	const [searchValue, set_searchValue] = useQueryState('search', {defaultValue: '', shallow: true});
 	const {getPrices, pricingHash} = usePrices();
 	const [allPrices, set_allPrices] = useState<TNDict<TDict<TNormalizedBN>>>({});
@@ -186,4 +186,14 @@ export function VaultList(props: TVaultListProps): ReactElement {
 			/>
 		</div>
 	);
+}
+
+export function VaultList(props: TVaultListProps): ReactElement {
+	const [isMounted, set_isMounted] = useState(false);
+
+	useEffect(() => {
+		set_isMounted(true);
+	}, []);
+
+	return isMounted ? <VaultListContent {...props} /> : <Fragment />;
 }

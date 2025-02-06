@@ -1,3 +1,5 @@
+import {Section6} from '@lib/sections/Section6';
+
 import {Section1} from './Section1';
 import {Section2} from './Section2';
 import {Section3} from './Section3';
@@ -7,7 +9,7 @@ import {Section5} from './Section5';
 import type {ReactElement} from 'react';
 
 type TSectionProps = {
-	variant: 1 | 2 | 3 | 4 | 5;
+	variant: 1 | 2 | 3 | 4 | 5 | 6;
 	title: string;
 	description: string;
 	bgImage?: string;
@@ -62,6 +64,15 @@ export function Section({variant, title, description, bgImage, cards}: TSectionP
 					title={title}
 					description={description}
 					bgImage={bgImage}
+				/>
+			);
+		case 6:
+			return (
+				<Section6
+					title={title}
+					description={description}
+					bgImage={bgImage}
+					cards={cards}
 				/>
 			);
 	}
