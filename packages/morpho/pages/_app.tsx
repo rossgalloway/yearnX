@@ -17,8 +17,8 @@ export default function MyApp(props: AppProps): ReactElement {
 				description={PROJECT_DESCRIPTION}
 				titleColor={COLORS.background}
 				themeColor={COLORS.primary}
-				og={''}
-				uri={''}
+				og={'https://morpho.yearn.space/og.png'}
+				uri={'https://morpho.yearn.space'}
 			/>
 			<PlausibleProvider
 				domain={'yearn.space'}
