@@ -1,5 +1,5 @@
 {
-	"name": "yearnxmorpho",
+	"name": "yearnxkatana",
 	"scripts": {
 		"dev": "next",
 		"dev:ts": "tsc --watch",
