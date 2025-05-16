@@ -226,4 +226,5 @@ export type TPossibleVaultFilter =
 	| 'curve'
 	| 'ajna'
 	| 'velodrome'
-	| 'morpho';
+	| 'morpho'
+	| 'katana';
