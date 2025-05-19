@@ -19,7 +19,7 @@ export function DefaultHeader({docsLink, secondLogoURL}: TDefaultHeader): ReactE
 	return (
 		<div className={'bg-table flex items-center justify-between rounded-3xl px-6 py-5'}>
 			<div className={'flex items-center gap-10'}>
-				<div className={'bg-headerTag/90 text-regularText flex h-12 items-center gap-x-2 rounded-xl p-2'}>
+				<div className={'text-regularText flex h-12 items-center gap-x-2 rounded-xl bg-[#15181a] p-2'}>
 					<LogoYearn
 						className={'size-8'}
 						front={'text-[#FFFFFF]'}

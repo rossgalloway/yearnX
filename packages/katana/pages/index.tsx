@@ -10,6 +10,7 @@ import {APY_TYPE, PROJECT_DESCRIPTION, PROJECT_TITLE, VARIANT_TO_USE, VAULT_FILT
 
 export default function Index(): ReactElement {
 	const {vaults, isLoading} = useFetchYearnVaults(VAULT_FILTER);
+	console.log('vaults', vaults);
 	const vaultsValues = useDeepCompareMemo(() => Object.values(vaults), [vaults]);
 
 	const sumOfTVL = useMemo(() => {
@@ -48,7 +49,7 @@ export default function Index(): ReactElement {
 			/>
 			<Section
 				variant={VARIANT_TO_USE}
-				bgImage={'/bg.png'}
+				bgImage={'/bg2.png'}
 				title={PROJECT_TITLE}
 				description={PROJECT_DESCRIPTION}
 				cards={[
