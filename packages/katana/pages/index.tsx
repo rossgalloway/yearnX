@@ -10,7 +10,6 @@ import {APY_TYPE, PROJECT_DESCRIPTION, PROJECT_TITLE, VARIANT_TO_USE, VAULT_FILT
 
 export default function Index(): ReactElement {
 	const {vaults, isLoading} = useFetchYearnVaults(VAULT_FILTER);
-	console.log('vaults', vaults);
 	const vaultsValues = useDeepCompareMemo(() => Object.values(vaults), [vaults]);
 
 	const sumOfTVL = useMemo(() => {
