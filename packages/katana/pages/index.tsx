@@ -1,7 +1,7 @@
 import {type ReactElement, useMemo} from 'react';
-import {DefaultHeader} from '@lib/components/common/DefaultHeader';
 import {Footer} from '@lib/components/common/Footer';
-import {VaultList} from '@lib/components/common/VaultList';
+import {KatanaHeader} from '@lib/components/common/KatanaHeader';
+import {VaultList} from '@lib/components/common/KatanaVaultList';
 import {useFetchYearnVaults} from '@lib/hooks/useYearnVaults';
 import {Section} from '@lib/sections';
 import {useDeepCompareMemo} from '@react-hookz/web';
@@ -42,13 +42,13 @@ export default function Index(): ReactElement {
 
 	return (
 		<section className={'flex w-full max-w-[1200px] flex-col gap-y-6'}>
-			<DefaultHeader
+			<KatanaHeader
 				docsLink={'https://docs.yearn.fi/'}
-				secondLogoURL={'/partnerLogo.png'}
+				secondLogoURL={'/katanaTypemark.png'}
 			/>
 			<Section
 				variant={VARIANT_TO_USE}
-				bgImage={'/bg2.png'}
+				bgImage={'/bg3.png'}
 				title={PROJECT_TITLE}
 				description={PROJECT_DESCRIPTION}
 				cards={[

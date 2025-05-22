@@ -227,7 +227,7 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 				description={successModal.description}
 			/>
 
-			{/* Desctop screen Item */}
+			{/* Desktop screen Item */}
 			<div className={'bg-regularText/3 hidden h-24 min-h-[68px] rounded-xl p-2.5 md:grid md:grid-cols-7'}>
 				<Link
 					href={yearnfiLink}
@@ -291,7 +291,7 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 					<button
 						onClick={onDepositClick}
 						className={
-							'bg-button hover:bg-buttonHover text-accentText !h-12 w-full rounded-xl p-3 transition-colors'
+							'bg-button hover:bg-[#f8fe06] text-accentText hover:text-black !h-12 w-full rounded-xl p-3 transition-colors'
 						}>
 						{'Deposit'}
 					</button>

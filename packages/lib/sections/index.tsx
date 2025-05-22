@@ -1,15 +1,15 @@
+import {KatanaSection} from '@lib/sections/KatanaSection';
+import {Section1} from '@lib/sections/Section1';
+import {Section2} from '@lib/sections/Section2';
+import {Section3} from '@lib/sections/Section3';
+import {Section4} from '@lib/sections/Section4';
+import {Section5} from '@lib/sections/Section5';
 import {Section6} from '@lib/sections/Section6';
-
-import {Section1} from './Section1';
-import {Section2} from './Section2';
-import {Section3} from './Section3';
-import {Section4} from './Section4';
-import {Section5} from './Section5';
 
 import type {ReactElement} from 'react';
 
 type TSectionProps = {
-	variant: 1 | 2 | 3 | 4 | 5 | 6;
+	variant: 1 | 2 | 3 | 4 | 5 | 6 | 7;
 	title: string;
 	description: string;
 	bgImage?: string;
@@ -69,6 +69,15 @@ export function Section({variant, title, description, bgImage, cards}: TSectionP
 		case 6:
 			return (
 				<Section6
+					title={title}
+					description={description}
+					bgImage={bgImage}
+					cards={cards}
+				/>
+			);
+		case 7:
+			return (
+				<KatanaSection
 					title={title}
 					description={description}
 					bgImage={bgImage}
