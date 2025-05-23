@@ -1,8 +1,8 @@
 import type {TAPYType} from '@lib/utils/types';
 
-export const PROJECT_TITLE = 'Yearn x Katana';
-export const PROJECT_DESCRIPTION = 'Slice and Dice your way to better yield!';
-export const VARIANT_TO_USE = 6;
+export const PROJECT_TITLE = 'Katana Pre-Deposit Vaults';
+export const PROJECT_DESCRIPTION = 'Welcome to the Dojo';
+export const VARIANT_TO_USE = 7;
 export const VAULT_FILTER = 'katana';
 export const VAULTS_PER_PAGE = 20;
 export const APY_TYPE: TAPYType = 'ESTIMATED';

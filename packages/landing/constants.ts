@@ -52,6 +52,20 @@ export const PARTNERS: TPartners = [
 		icon: 'https://velodrome.yearn.space/favicons/favicon-512x512.png',
 		vaultType: 'v2',
 		url: 'https://velodrome.yearn.space'
+	},
+	{
+		name: 'Yearn X Morpho',
+		description: 'Time to feel the 🦋 effect!',
+		icon: 'https://morpho.yearn.space/favicons/favicon-512x512.png',
+		vaultType: 'v3',
+		url: 'https://morpho.yearn.space'
+	},
+	{
+		name: 'Katana Pre-Deposit Vaults',
+		description: 'Enter the Dojo',
+		icon: 'https://katana.yearn.space/favicons/web-app-manifest-512x512.png',
+		vaultType: 'v3',
+		url: 'https://katana.yearn.space'
 	}
 	// {
 	// 	name: 'Yearn X ',
