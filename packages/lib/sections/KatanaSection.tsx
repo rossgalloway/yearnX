@@ -48,7 +48,7 @@ export const KatanaSection = ({bgImage}: TSectionProps): ReactElement => (
 				</p>
 				<br />
 				<p className={'text-md'}>
-					{'Here, your assets will find rest and reprieve. And a bridge to the Katana Network. '}
+					{'Here your assets will find rest and reprieve. And a bridge to the Katana Network. '}
 				</p>
 				<br />
 				<p className={'text-md'}>

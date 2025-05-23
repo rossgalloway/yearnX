@@ -59,62 +59,13 @@ export const PARTNERS: TPartners = [
 		icon: 'https://morpho.yearn.space/favicons/favicon-512x512.png',
 		vaultType: 'v3',
 		url: 'https://morpho.yearn.space'
-	},
-	{
-		name: 'Katana Pre-Deposit Vaults',
-		description: 'Enter the Dojo',
-		icon: 'https://katana.yearn.space/favicons/web-app-manifest-512x512.png',
-		vaultType: 'v3',
-		url: 'https://katana.yearn.space'
 	}
 	// {
-	// 	name: 'Yearn X ',
-	// 	description: 'Pooltogether description lines',
-	// 	icon: '',
-	// 	vaultType: 'v2',
-	// 	url: ''
-	// },
-	// {
-	// 	name: 'PoolTogether2',
-	// 	description: 'Pooltogether description lines',
-	// 	icon: '',
+	// 	name: 'Katana Pre-Deposit Vaults',
+	// 	description: 'Enter the Dojo',
+	// 	icon: 'https://katana.yearn.space/favicons/web-app-manifest-512x512.png',
 	// 	vaultType: 'v3',
-	// 	url: ''
-	// },
-	// {
-	// 	name: 'PoolTogether3',
-	// 	description: 'Pooltogether description lines',
-	// 	icon: '',
-	// 	vaultType: 'others',
-	// 	url: ''
-	// },
-	// {
-	// 	name: 'PoolTogether4',
-	// 	description: 'Pooltogether description lines',
-	// 	icon: '',
-	// 	vaultType: 'v3',
-	// 	url: ''
-	// },
-	// {
-	// 	name: 'PoolTogether5',
-	// 	description: 'Pooltogether description lines',
-	// 	icon: '',
-	// 	vaultType: 'others',
-	// 	url: ''
-	// },
-	// {
-	// 	name: 'PoolTogether6',
-	// 	description: 'Pooltogether description lines',
-	// 	icon: '',
-	// 	vaultType: 'v3',
-	// 	url: ''
-	// },
-	// {
-	// 	name: 'PoolTogether7',
-	// 	description: 'Pooltogether description lines',
-	// 	icon: '',
-	// 	vaultType: 'v2',
-	// 	url: ''
+	// 	url: 'https://katana.yearn.space'
 	// }
 ];
 
