@@ -74,18 +74,18 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 	 ** @param {TAPYType} options.apyType - The APR type to display (HISTORICAL OR ESTIMATED)
 	 ** @returns {string} - The subAPY to display with a label
 	 *********************************************************************************************/
-	const subAPY = useMemo(() => {
-		if (!options?.shouldDisplaySubAPY) {
-			return ' ';
-		}
-		if (!options?.apyType) {
-			return `historical ${toPercent(vault.apr.netAPR)}`;
-		}
-		if (options.apyType === 'HISTORICAL') {
-			return `estimated ${toPercent(vault.apr.forwardAPR.netAPR)}`;
-		}
-		return `historical ${toPercent(vault.apr.netAPR)}`;
-	}, [options?.shouldDisplaySubAPY, options?.apyType, vault.apr.netAPR, vault.apr.forwardAPR.netAPR]);
+	// const subAPY = useMemo(() => {
+	// 	if (!options?.shouldDisplaySubAPY) {
+	// 		return ' ';
+	// 	}
+	// 	if (!options?.apyType) {
+	// 		return `historical ${toPercent(vault.apr.netAPR)}`;
+	// 	}
+	// 	if (options.apyType === 'HISTORICAL') {
+	// 		return `estimated ${toPercent(vault.apr.forwardAPR.netAPR)}`;
+	// 	}
+	// 	return `historical ${toPercent(vault.apr.netAPR)}`;
+	// }, [options?.shouldDisplaySubAPY, options?.apyType, vault.apr.netAPR, vault.apr.forwardAPR.netAPR]);
 
 	/**********************************************************************************************
 	 ** useEffect hook to retrieve and memoize prices for the vault token.
@@ -252,9 +252,9 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 				</Link>
 				<div className={'font-number flex items-center justify-end'}>
 					<div className={'text-right font-mono font-semibold'}>
-						{toPercent(APYToUse)}
+						{'5.00%'}
 						<div className={'text-regularText truncate text-right text-xs font-normal text-opacity-40'}>
-							{subAPY}
+							{'Earned when Live'}
 						</div>
 					</div>
 				</div>
@@ -290,8 +290,9 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 					) : null}
 					<button
 						onClick={onDepositClick}
+						disabled={true}
 						className={
-							'bg-button text-accentText hover:buttonHover !h-12 w-full rounded-xl p-3 transition-colors hover:text-black'
+							'bg-button text-accentText !h-12 w-full rounded-xl p-3 transition-colors hover:bg-[#f8fe06] hover:text-black'
 						}>
 						{'Deposit'}
 					</button>
@@ -355,6 +356,7 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 					) : null}
 					<button
 						onClick={onDepositClick}
+						disabled={true}
 						className={
 							'bg-button hover:bg-buttonHover text-accentText !h-12 w-full rounded-xl p-3 transition-colors'
 						}>

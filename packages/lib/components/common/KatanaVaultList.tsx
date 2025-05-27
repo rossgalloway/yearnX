@@ -10,9 +10,9 @@ import {useSortedVaults} from '@lib/hooks/useSortedVaults';
 import {useVaultsPagination} from '@lib/hooks/useVaultsPagination';
 import {acknowledge} from '@lib/utils/tools';
 
+import {VaultItem} from './KatanaVaultItem';
 import {Pagination} from './Pagination';
 import {Skeleton} from './Skeleton';
-import {VaultItem} from './VaultItem';
 // import {VaultSearch} from './VaultSearch';
 import {VaultsListHead} from './VaultsListHead';
 
