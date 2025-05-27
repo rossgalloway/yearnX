@@ -18,7 +18,7 @@ import {
 import {getNetwork} from '@builtbymom/web3/utils/wagmi';
 import {useManageVaults} from '@lib/contexts/useManageVaults';
 import {usePrices} from '@lib/contexts/usePrices';
-import {acknowledge, toPercent} from '@lib/utils/tools';
+import {acknowledge} from '@lib/utils/tools';
 
 import {IconExternalLink} from '../icons/IconExternalLink';
 import {DepositModal} from './DepositModal';
@@ -76,7 +76,7 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 	 *********************************************************************************************/
 	// const subAPY = useMemo(() => {
 	// 	if (!options?.shouldDisplaySubAPY) {
-	// 		return ' ';
+	// 		return '';
 	// 	}
 	// 	if (!options?.apyType) {
 	// 		return `historical ${toPercent(vault.apr.netAPR)}`;
