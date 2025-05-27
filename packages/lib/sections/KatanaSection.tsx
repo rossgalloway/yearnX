@@ -52,7 +52,22 @@ export const KatanaSection = ({bgImage}: TSectionProps): ReactElement => (
 				</p>
 				<br />
 				<p className={'text-md'}>
-					{'Deposit USDT, USDC, WBTC, and WETH below to earn yield and additional rewards.'}
+					{
+						'Deposit USDT, USDC, WBTC, and WETH below. When Katana Chain is live, your funds will be automatically bridged to Katana, and you will be the first Samurai to earn your reward! Make sure to deposit here using a wallet with '
+					}
+					<span className={'group relative'}>
+						<span className={'cursor-pointer underline'}>{'an address you can control on a new L2'}</span>
+						{/* Tooltip */}
+						<span
+							className={
+								'absolute left-1/2 top-full z-10 hidden w-64 -translate-x-1/2 translate-y-2 rounded-lg bg-black p-2 text-xs text-white shadow-lg group-hover:block'
+							}>
+							{
+								'Smart contract wallets like Gnosis Safe should only be used if you can deploy the same address to an L2 chain. If you are unsure, we recommend using an EOA wallet.'
+							}
+						</span>
+					</span>
+					{'.'}
 				</p>
 				<br />
 				<p className={'text-md'}>
