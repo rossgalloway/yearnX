@@ -68,13 +68,13 @@ export function KatanaHeader({docsLink, secondLogoURL}: TKatanaHeader): ReactEle
 				<div className={'hidden md:block'}>
 					<div className={'flex items-center space-x-4'}>
 						<Link
-							href={docsLink || 'https://docs.yearn.fi/'}
+							href={'https://katana.network/'}
 							target={'_blank'}
 							className={'text-regularText mr-2'}>
-							{'Docs'}
+							{'Katana Site'}
 						</Link>
 						<Link
-							href={'https://x.com/yearnfi'}
+							href={'https://x.com/katana'}
 							className={'text-regularText font-[Aeonik] font-bold leading-3'}
 							target={'_blank'}
 							rel={'noopener noreferrer'}
