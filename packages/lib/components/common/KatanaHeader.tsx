@@ -8,11 +8,10 @@ import {IconColloboration} from '../icons/IconCollaboration';
 import {LogoYearn} from '../icons/LogoYearn';
 
 type TKatanaHeader = {
-	docsLink: string;
 	secondLogoURL: string;
 };
 
-export function KatanaHeader({docsLink, secondLogoURL}: TKatanaHeader): ReactElement {
+export function KatanaHeader({secondLogoURL}: TKatanaHeader): ReactElement {
 	const {onConnect, address, ens, clusters, openLoginModal} = useWeb3();
 	const ensOrClusters = useMemo(() => address && (ens || clusters?.name), [address, ens, clusters]);
 
@@ -68,17 +67,17 @@ export function KatanaHeader({docsLink, secondLogoURL}: TKatanaHeader): ReactEle
 				<div className={'hidden md:block'}>
 					<div className={'flex items-center space-x-4'}>
 						<Link
-							href={docsLink || 'https://docs.yearn.fi/'}
+							href={'https://katana.network/'}
 							target={'_blank'}
 							className={'text-regularText mr-2'}>
-							{'Docs'}
+							{'Katana Site'}
 						</Link>
 						<Link
-							href={'https://x.com/yearnfi'}
+							href={'https://x.com/katana'}
 							className={'text-regularText font-[Aeonik] font-bold leading-3'}
 							target={'_blank'}
 							rel={'noopener noreferrer'}
-							aria-label={'Yearn on X'}>
+							aria-label={'X (prev Twitter)'}>
 							<svg
 								xmlns={'http://www.w3.org/2000/svg'}
 								viewBox={'0 0 24 24'}

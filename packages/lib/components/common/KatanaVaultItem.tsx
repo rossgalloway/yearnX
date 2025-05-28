@@ -9,7 +9,6 @@ import {
 	cl,
 	formatAmount,
 	formatLocalAmount,
-	formatPercent,
 	isZeroAddress,
 	toAddress,
 	toNormalizedBN,
@@ -228,12 +227,12 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 			/>
 
 			{/* Desktop screen Item */}
-			<div className={'bg-regularText/3 hidden h-24 min-h-[68px] rounded-xl p-2.5 md:grid md:grid-cols-7'}>
+			<div className={'bg-regularText/3 hidden h-24 min-h-[68px] rounded-xl p-2.5 md:grid md:grid-cols-10'}>
 				<Link
 					href={yearnfiLink}
 					target={'_blank'}
 					className={
-						'border-regularText/15 bg-regularText/5 col-span-2 flex cursor-alias items-center justify-start overflow-hidden rounded-xl border p-3'
+						'border-regularText/15 bg-regularText/5 col-span-3 flex cursor-alias items-center justify-start overflow-hidden rounded-xl border p-3'
 					}>
 					<ImageWithFallback
 						src={`https://assets.smold.app/tokens/${vault.chainID}/${vault.token.address}/logo-32.png`}
@@ -250,23 +249,23 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 						<p className={'text-regularText/50 w-full'}>{getNetwork(vault.chainID).name}</p>
 					</div>
 				</Link>
-				<div className={'font-number flex items-center justify-end'}>
+				{/* <div className={'font-number flex items-center justify-end'}>
 					<div className={'text-right font-mono font-semibold'}>
 						{'5.00%'}
 						<div className={'text-regularText truncate text-right text-xs font-normal text-opacity-40'}>
 							{'Earned when Live'}
 						</div>
 					</div>
-				</div>
+				</div> */}
 
-				<div className={'font-number flex items-center justify-end'}>
+				<div className={'font-number col-span-2 flex items-center justify-end'}>
 					<div className={'text-right font-mono'}>
 						{totalDeposits}
 						<div className={'text-regularText invisible text-right text-xs'}>&nbsp;</div>
 					</div>
 				</div>
 
-				<div className={'font-number flex items-center justify-end'}>
+				<div className={'font-number col-span-2 flex items-center justify-end'}>
 					<div className={'w-2/3 overflow-hidden text-right font-mono'}>
 						{`$${formatAmount(balance * price.normalized, 2, 2)}`}
 						<div
@@ -278,7 +277,7 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 						</div>
 					</div>
 				</div>
-				<div className={cl('col-span-2 flex items-center justify-end gap-x-2 pl-10')}>
+				<div className={cl('col-span-3 flex items-center justify-end gap-x-2 pl-20')}>
 					{balance ? (
 						<button
 							onClick={onWithdrawClick}
@@ -290,7 +289,6 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 					) : null}
 					<button
 						onClick={onDepositClick}
-						disabled={true}
 						className={
 							'bg-button text-accentText !h-12 w-full rounded-xl p-3 transition-colors hover:bg-[#f8fe06] hover:text-black'
 						}>
@@ -323,12 +321,12 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 					</div>
 				</Link>
 
-				<div className={'flex w-full justify-between'}>
+				{/* <div className={'flex w-full justify-between'}>
 					<div className={'flex items-center gap-x-2 text-sm'}>
 						<p>{'APY'}</p>
 					</div>
 					<div>{formatPercent(APYToUse)}</div>
-				</div>
+				</div> */}
 
 				<div className={'flex w-full justify-between'}>
 					<div className={'flex items-center'}>
@@ -356,7 +354,6 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 					) : null}
 					<button
 						onClick={onDepositClick}
-						disabled={true}
 						className={
 							'bg-button hover:bg-buttonHover text-accentText !h-12 w-full rounded-xl p-3 transition-colors'
 						}>
