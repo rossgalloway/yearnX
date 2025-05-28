@@ -32,7 +32,7 @@ export function Footer(): ReactElement {
 				</Link>
 				<Link
 					target={'_blank'}
-					href={'https://x.com/yearnfi'}>
+					href={'https://x.com/katana'}>
 					<svg
 						xmlns={'http://www.w3.org/2000/svg'}
 						viewBox={'0 0 24 24'}
