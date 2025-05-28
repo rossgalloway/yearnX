@@ -1,5 +1,5 @@
 import {type ReactElement, useMemo} from 'react';
-import {Footer} from '@lib/components/common/Footer';
+import {Footer} from '@lib/components/common/KatanaFooter';
 import {KatanaHeader} from '@lib/components/common/KatanaHeader';
 import {VaultList} from '@lib/components/common/KatanaVaultList';
 import {useFetchYearnVaults} from '@lib/hooks/useYearnVaults';
@@ -42,10 +42,7 @@ export default function Index(): ReactElement {
 
 	return (
 		<section className={'flex w-full max-w-[1200px] flex-col gap-y-6'}>
-			<KatanaHeader
-				docsLink={'https://docs.yearn.fi/'}
-				secondLogoURL={'/katanaTypemark.png'}
-			/>
+			<KatanaHeader secondLogoURL={'/katanaTypemark.png'} />
 			<Section
 				variant={VARIANT_TO_USE}
 				bgImage={'/bg3.png'}
@@ -66,7 +63,7 @@ export default function Index(): ReactElement {
 				}}
 			/>
 
-			<Footer docsLink={'https://docs.yearn.fi/'} />
+			<Footer />
 		</section>
 	);
 }

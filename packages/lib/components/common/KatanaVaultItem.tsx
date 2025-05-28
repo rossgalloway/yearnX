@@ -289,7 +289,6 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 					) : null}
 					<button
 						onClick={onDepositClick}
-						disabled={true}
 						className={
 							'bg-button text-accentText !h-12 w-full rounded-xl p-3 transition-colors hover:bg-[#f8fe06] hover:text-black'
 						}>
@@ -355,7 +354,6 @@ export const VaultItem = ({vault, price, options}: TVaultItem): ReactElement => 
 					) : null}
 					<button
 						onClick={onDepositClick}
-						disabled={true}
 						className={
 							'bg-button hover:bg-buttonHover text-accentText !h-12 w-full rounded-xl p-3 transition-colors'
 						}>
