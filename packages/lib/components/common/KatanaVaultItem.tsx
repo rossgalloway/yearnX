@@ -9,7 +9,6 @@ import {
 	cl,
 	formatAmount,
 	formatLocalAmount,
-	// formatPercent,
 	isZeroAddress,
 	toAddress,
 	toNormalizedBN,
