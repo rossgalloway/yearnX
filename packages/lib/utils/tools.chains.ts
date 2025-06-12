@@ -1,11 +1,12 @@
 /* eslint-disable object-curly-newline */
 'use client';
 
+import {defineChain} from 'viem';
 import {arbitrum, base, fantom, gnosis, mainnet, optimism, polygon} from 'viem/chains';
-import {toAddress} from '@builtbymom/web3/utils';
+import {toAddress} from '@lib/utils';
 
 import type {Chain} from 'viem/chains';
-import type {TAddress, TNDict} from '@builtbymom/web3/types';
+import type {TAddress, TNDict} from '@lib/types';
 
 type TSmolChains = TNDict<
 	Chain & {
@@ -20,6 +21,33 @@ type TAssignRPCUrls = {
 		http: string[];
 	};
 };
+
+const katana = /*#__PURE__*/ defineChain({
+	id: 747474,
+	name: 'Katana',
+	nativeCurrency: {
+		decimals: 18,
+		name: 'Ether',
+		symbol: 'ETH'
+	},
+	rpcUrls: {
+		default: {http: ['https://rpc.katanarpc.com']}
+	},
+	blockExplorers: {
+		default: {
+			name: 'Katana Explorer',
+			url: 'https://explorer.katanarpc.com'
+		}
+	},
+	contracts: {
+		multicall3: {
+			address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+			blockCreated: 1898013
+		}
+	},
+	testnet: false
+});
+
 export function assignRPCUrls(chain: Chain, rpcUrls?: string[]): TAssignRPCUrls {
 	const availableRPCs: string[] = [];
 
@@ -108,6 +136,13 @@ const CHAINS: TSmolChains = {
 		llamaChainName: 'arbitrum',
 		rpcUrls: assignRPCUrls(arbitrum),
 		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de')
+	},
+	[katana.id]: {
+		...katana,
+		coingeckoGasCoinID: 'ethereum',
+		llamaChainName: 'katana',
+		rpcUrls: assignRPCUrls(katana),
+		yearnRouterAddress: toAddress('')
 	}
 };
 

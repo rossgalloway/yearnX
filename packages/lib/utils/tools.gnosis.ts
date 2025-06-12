@@ -2,8 +2,8 @@ import abiCoder from 'web3-eth-abi';
 
 import type {AbiCoder} from 'web3-eth-abi';
 import type {AbiItem} from 'web3-utils';
-import type {TAddress} from '@builtbymom/web3/types';
 import type {BaseTransaction} from '@gnosis.pm/safe-apps-sdk';
+import type {TAddress} from '@lib/types';
 
 const ERC20ABI_APPROVE: AbiItem = {
 	type: 'function',

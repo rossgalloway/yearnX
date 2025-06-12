@@ -1,10 +1,10 @@
 import {type ReactElement, useCallback} from 'react';
-import {cl} from '@builtbymom/web3/utils';
+import {cl} from '@lib/utils';
 
 import {IconSort} from '../icons/IconSort';
 
-import type {TSortDirection} from '@builtbymom/web3/types';
 import type {TYDaemonVaults} from '@lib/hooks/useYearnVaults.types';
+import type {TSortDirection} from '@lib/types';
 import type {TVaultsSortBy} from '@lib/utils/types';
 
 type TVaultsListHeadProps = {
