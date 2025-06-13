@@ -13,6 +13,7 @@ type TSmolChains = TNDict<
 		coingeckoGasCoinID: string;
 		llamaChainName?: string;
 		yearnRouterAddress: TAddress | undefined;
+		bgColor?: string;
 	}
 >;
 
@@ -92,7 +93,8 @@ const CHAINS: TSmolChains = {
 		coingeckoGasCoinID: 'ethereum',
 		llamaChainName: 'ethereum',
 		rpcUrls: assignRPCUrls(mainnet),
-		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de')
+		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de'),
+		bgColor: '#253d6b'
 	},
 	[optimism.id]: {
 		...optimism,
@@ -100,21 +102,24 @@ const CHAINS: TSmolChains = {
 		coingeckoGasCoinID: 'ethereum',
 		llamaChainName: 'optimism',
 		rpcUrls: assignRPCUrls(optimism),
-		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de')
+		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de'),
+		bgColor: '#6b212b'
 	},
 	[gnosis.id]: {
 		...gnosis,
 		coingeckoGasCoinID: 'xdai',
 		llamaChainName: 'xdai',
 		rpcUrls: assignRPCUrls(gnosis),
-		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de')
+		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de'),
+		bgColor: '#0b4d0f'
 	},
 	[polygon.id]: {
 		...polygon,
 		coingeckoGasCoinID: 'matic-network',
 		llamaChainName: 'polygon',
 		rpcUrls: assignRPCUrls(polygon),
-		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de')
+		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de'),
+		bgColor: '#320a36'
 	},
 	[fantom.id]: {
 		...fantom,
@@ -128,21 +133,24 @@ const CHAINS: TSmolChains = {
 		coingeckoGasCoinID: 'ethereum',
 		llamaChainName: 'base',
 		rpcUrls: assignRPCUrls(base),
-		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de')
+		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de'),
+		bgColor: '#1e2e87'
 	},
 	[arbitrum.id]: {
 		...arbitrum,
 		coingeckoGasCoinID: 'ethereum',
 		llamaChainName: 'arbitrum',
 		rpcUrls: assignRPCUrls(arbitrum),
-		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de')
+		yearnRouterAddress: toAddress('0x1112dbcf805682e828606f74ab717abf4b4fd8de'),
+		bgColor: '#424240'
 	},
 	[katana.id]: {
 		...katana,
 		coingeckoGasCoinID: 'ethereum',
 		llamaChainName: 'katana',
 		rpcUrls: assignRPCUrls(katana),
-		yearnRouterAddress: toAddress('')
+		yearnRouterAddress: toAddress(''),
+		bgColor: '#694a11'
 	}
 };
 

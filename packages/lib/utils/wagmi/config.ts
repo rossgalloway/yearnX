@@ -105,8 +105,6 @@ export function getConfig({chains}: {chains: Chain[]}): ResolvedRegister['config
 		}
 	}
 
-	console.log('walletConnect', process.env.WALLETCONNECT_PROJECT_ID, process.env.WALLETCONNECT_PROJECT_NAME);
-
 	const config = getDefaultConfig({
 		appName: (process.env.WALLETCONNECT_PROJECT_NAME as string) || 'not_found',
 		projectId: process.env.WALLETCONNECT_PROJECT_ID as string,

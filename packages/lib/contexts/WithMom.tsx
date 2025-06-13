@@ -45,7 +45,6 @@ function WithMom({
 	initialState
 }: TWithMom): ReactElement {
 	const config = useMemo(() => getConfig({chains: supportedChains}), [supportedChains]);
-	console.log('config: ', config);
 
 	return (
 		<WagmiProvider

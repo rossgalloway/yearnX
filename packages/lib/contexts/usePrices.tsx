@@ -141,19 +141,21 @@ export const WithPrices = (props: {children: ReactElement; supportedNetworks?: C
 			 ** a batch of 100 tokens per request.
 			 *************************************************************************************/
 			const ydaemonRequests = [];
-			if (missingTokens.length > 50) {
-				const tokens = missingTokens.slice();
-				while (tokens.length) {
-					const chunk = tokens.splice(0, 50);
-					ydaemonRequests.push(
-						axios.get(`https://ydaemon.yearn.fi/prices/some/${prepareQueryStringForYDaemon(chunk)}`)
-					);
-				}
-			} else {
-				ydaemonRequests.push(axios.get(`https://ydaemon.yearn.fi/prices/some/${queryStringForYDaemon}`));
-			}
+			// if (missingTokens.length > 50) {
+			// 	const tokens = missingTokens.slice();
+			// 	while (tokens.length) {
+			// 		const chunk = tokens.splice(0, 50);
+			// 		ydaemonRequests.push(
+			// 			axios.get(`https://ydaemon.yearn.fi/prices/some/${prepareQueryStringForYDaemon(chunk)}`)
+			// 		);
+			// 	}
+			// } else {
+			ydaemonRequests.push(axios.get('https://ydaemon.yearn.fi/prices/all'));
+			// }
 			const allPricesFromYDaemon = await Promise.allSettled(ydaemonRequests);
+			console.log('allPricesFromYDaemon', allPricesFromYDaemon);
 			const pricesFromYDaemon = mergeYDaemonResponse(allPricesFromYDaemon);
+			console.log('pricesFromYDaemon', pricesFromYDaemon);
 
 			/**************************************************************************************
 			 ** We will update the prices object with the new prices from the llama and yDaemon

@@ -11,9 +11,9 @@ import {zeroNormalizedBN} from '@lib/utils';
 import {acknowledge} from '@lib/utils/tools';
 
 import {VaultItem} from './KatanaVaultItem';
+import {VaultsListHead} from './KatanaVaultsListHead';
 import {Pagination} from './Pagination';
 import {Skeleton} from './Skeleton';
-import {VaultsListHead} from './VaultsListHead';
 
 import type {TYDaemonVaults} from '@lib/hooks/useYearnVaults.types';
 import type {TDict, TNDict, TNormalizedBN, TToken} from '@lib/types';
